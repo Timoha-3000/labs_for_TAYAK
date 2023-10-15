@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "labs_for_TAYAK", "labs_for_TAYAK.csproj", "{86C24932-4FAB-4535-92C1-36B96D044DC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_2_TAYAK", "Lab_2_TAYAK\Lab_2_TAYAK.csproj", "{1374BEED-B17C-4964-B66A-12662A6D75E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_1_TAYAK", "..\Lab_1_TAYAK\Lab_1_TAYAK.csproj", "{F102AD82-10C3-480C-A880-F0125629AA9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_3_TAYAK", "Lab_3_TAYAK\Lab_3_TAYAK.csproj", "{52FAF65E-930F-4C7E-8248-CA04752090A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_2_TAYAK", "..\Lab_2_TAYAK\Lab_2_TAYAK.csproj", "{C66CD0E6-33DA-44B2-BEA7-82C806385F0E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_3_TAYAK", "..\Lab_3_TAYAK\Lab_3_TAYAK.csproj", "{D1A86567-84F0-43CC-B07D-17DD4F4FA786}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_1_TAYAK", "Lab_1_TAYAK\Lab_1_TAYAK.csproj", "{C6400B3B-C63E-48B3-807D-61F735D00905}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,22 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{86C24932-4FAB-4535-92C1-36B96D044DC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{86C24932-4FAB-4535-92C1-36B96D044DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{86C24932-4FAB-4535-92C1-36B96D044DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{86C24932-4FAB-4535-92C1-36B96D044DC3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F102AD82-10C3-480C-A880-F0125629AA9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F102AD82-10C3-480C-A880-F0125629AA9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F102AD82-10C3-480C-A880-F0125629AA9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F102AD82-10C3-480C-A880-F0125629AA9F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C66CD0E6-33DA-44B2-BEA7-82C806385F0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C66CD0E6-33DA-44B2-BEA7-82C806385F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C66CD0E6-33DA-44B2-BEA7-82C806385F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C66CD0E6-33DA-44B2-BEA7-82C806385F0E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D1A86567-84F0-43CC-B07D-17DD4F4FA786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D1A86567-84F0-43CC-B07D-17DD4F4FA786}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D1A86567-84F0-43CC-B07D-17DD4F4FA786}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1A86567-84F0-43CC-B07D-17DD4F4FA786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1374BEED-B17C-4964-B66A-12662A6D75E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1374BEED-B17C-4964-B66A-12662A6D75E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1374BEED-B17C-4964-B66A-12662A6D75E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1374BEED-B17C-4964-B66A-12662A6D75E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52FAF65E-930F-4C7E-8248-CA04752090A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52FAF65E-930F-4C7E-8248-CA04752090A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52FAF65E-930F-4C7E-8248-CA04752090A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52FAF65E-930F-4C7E-8248-CA04752090A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6400B3B-C63E-48B3-807D-61F735D00905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6400B3B-C63E-48B3-807D-61F735D00905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6400B3B-C63E-48B3-807D-61F735D00905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6400B3B-C63E-48B3-807D-61F735D00905}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
