@@ -1,10 +1,14 @@
-﻿namespace Lab_1_TAYAK
+﻿using System.Text;
+
+namespace Lab_1_TAYAK
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Calulator calulator = new Calulator();
+
+            calulator.StartPosition();
         }
     }
 }
