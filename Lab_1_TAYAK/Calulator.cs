@@ -55,7 +55,7 @@ namespace Lab_1_TAYAK
         private string NormalizeExpression(string expression)
         {
             expression = expression.Replace(" ", "");
-            expression = Regex.Replace(expression, @"(?<=\d)-", "N"); // Заменяем унарный минус перед числами на 'N'
+            expression = Regex.Replace(expression, @"(?<=\d)-", " - 0 -"); // Заменяем унарный минус перед числами на 'N'
             expression = expression.Replace("(-", "(0-"); // Заменяем (- на (0-
             return expression;
         }
@@ -67,6 +67,27 @@ namespace Lab_1_TAYAK
 
             string[] tokens = Tokenize(expression);
 
+            if (tokens.Contains("log"))
+            {
+                // сюды над будет что-то придумывать, если log не идёт первым аргументом в выражении
+                while (tokens.Contains("log"))
+                {
+                    for (int i = 0; i < tokens.Length; i++)
+                    {
+                        if (tokens[i] == "log")
+                        {
+                            operators.Push(tokens[i]);
+                            output.Enqueue(tokens[i + 2].ToString());
+                            tokens[i] = "";
+                            tokens[i + 1] = "";
+                            tokens[i + 2] = "";
+                            tokens[i + 3] = "";
+
+                        }
+                    }
+                }
+            }
+
             foreach (string token in tokens)
             {
                 if (IsNumber(token))
@@ -75,11 +96,7 @@ namespace Lab_1_TAYAK
                 }
                 else if (IsFunction(token))
                 {
-                    operators.Push(token);
-                }
-                else if (token.Contains("log"))
-                {
-                    // сюды над будет что-то придумывать, если log не идёт первым аргументом в выражении
+                    operators.Push(token); // log
                 }
                 else if (IsOperator(token))
                 {
@@ -109,6 +126,8 @@ namespace Lab_1_TAYAK
                         output.Enqueue(operators.Pop());
                     }
                 }
+                else if (token == "" && operators.Contains("log")) { }
+                else if (token.Length == 1) { }
                 else
                 {
                     throw new ArgumentException("Неверный токен: " + token);
@@ -134,22 +153,23 @@ namespace Lab_1_TAYAK
             {
                 string token = rpn.Dequeue();
                 string logArg = "";
-                if (IsNumber(token))
+                if (IsNumber(token) || token.Contains(";"))
                 {
-                    if (IsFunction(rpn.First()))
-                    {
-                        for (int j = 0; token[j] != char.Parse(","); j++)
-                            logArg += token[j];
-                        stack.Push(double.Parse(logArg.ToString()));
+                    if (rpn.Count != 0)
+                        if (IsFunction(rpn.First()))
+                        {
+                            for (int j = 0; token[j] != char.Parse(";"); j++)
+                                logArg += token[j];
+                            stack.Push(double.Parse(logArg.ToString()));
 
-                        logArg = "";
+                            logArg = "";
 
-                        for (int j = token.IndexOf(","); j < token.Length - 1; j++)
-                            logArg += token[j + 1];
-                        stack.Push(double.Parse(logArg.ToString()));
-                    }
-                    else
-                        stack.Push(double.Parse(token));
+                            for (int j = token.IndexOf(";"); j < token.Length - 1; j++)
+                                logArg += token[j + 1];
+                            stack.Push(double.Parse(logArg.ToString()));
+                        }
+                        else
+                            stack.Push(double.Parse(token));
                 }
                 else if (IsOperator(token))
                 {
@@ -176,7 +196,8 @@ namespace Lab_1_TAYAK
             }
             if (stack.Count != 1)
             {
-                throw new ArgumentException("Неверное выражение");
+                Console.WriteLine(stack);
+                //throw //new ArgumentException("Неверное выражение");
             }
             return stack.Pop();
         }
@@ -217,6 +238,7 @@ namespace Lab_1_TAYAK
         private bool IsNumber(string token)
         {
             double result;
+
             return double.TryParse(token, out result);
         }
 

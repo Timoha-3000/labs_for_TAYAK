@@ -63,19 +63,22 @@ namespace Lab_2_TAYAK.Automatic
             {
                 string currentState = statesQueue.Dequeue();
 
-                foreach (char symbol in GetAllInputSymbols())
+                // Найдем все входные символы для данного состояния
+                IEnumerable<char> inputSymbols = new List<char>();
+                if (currentState.Length > 0)
+                    inputSymbols = GetAllInputSymbolsForState(currentState);
+
+                foreach (char symbol in inputSymbols)
                 {
                     List<string> toStates = GetToStates(currentState, symbol);
-                    if (toStates.Count > 0)
+                    string newState = string.Join(",", toStates);
+                    if (!visitedStates.Contains(newState))
                     {
-                        string newState = string.Join(",", toStates);
-                        deterministicAutomaton.AddTransition(currentState, symbol, newState);
-                        if (!visitedStates.Contains(newState))
-                        {
-                            statesQueue.Enqueue(newState);
-                            visitedStates.Add(newState);
-                        }
+                        statesQueue.Enqueue(newState);
+                        visitedStates.Add(newState);
                     }
+
+                    deterministicAutomaton.AddTransition(currentState, symbol, newState);
                 }
 
                 if (finalStates.Overlaps(currentState.Split(',')))
@@ -85,6 +88,18 @@ namespace Lab_2_TAYAK.Automatic
             }
 
             return deterministicAutomaton;
+        }
+
+        private IEnumerable<char> GetAllInputSymbolsForState(string states)
+        {
+            HashSet<char> symbols = new HashSet<char>();
+            string[] state = states.Split(",");
+
+            foreach (var item in state)
+                foreach (var inputSymbol in transitions[item].Keys)
+                   symbols.Add(inputSymbol);
+            
+            return symbols;
         }
 
         public bool Accepts(string input)
@@ -112,10 +127,12 @@ namespace Lab_2_TAYAK.Automatic
         private List<string> GetToStates(string fromState, char inputSymbol)
         {
             List<string> toStates = new List<string>();
-            if (transitions.ContainsKey(fromState) && transitions[fromState].ContainsKey(inputSymbol))
-            {
-                toStates = transitions[fromState][inputSymbol];
-            }
+            string[] states = fromState.Split(",");
+
+            foreach (var state in states) 
+                if (transitions.ContainsKey(fromState) && transitions[fromState].ContainsKey(inputSymbol))
+                    toStates = (transitions[fromState][inputSymbol]);
+
             return toStates;
         }
 

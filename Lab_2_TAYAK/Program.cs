@@ -12,8 +12,8 @@ namespace Lab_2_TAYAK
         {
             //Console.Write("Введите имя файла с описанием автомата: ");
             //string filename = Console.ReadLine();
-            //string filename = "Files\\var1.txt"; // ab+cd*e=357
-            string filename = "Files\\var3_nd.txt"; // не детерминированный автомат
+            string filename = "Files\\var1.txt"; // ab+cd*e=357
+            //string filename = "Files\\var3_nd.txt"; // не детерминированный автомат
 
             FiniteAutomaton automaton = AutomaticHelper.ParseAutomatonFromFile(filename);
             Console.WriteLine("Детерминированный: " + automaton.IsDeterministic());
